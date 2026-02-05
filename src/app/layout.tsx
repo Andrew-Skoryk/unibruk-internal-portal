@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Unibruk | Внутрішній портал",
   description:
     "Внутрішній портал Unibruk для відділу збуту та реалізації продукції.",
+  icons: {
+    icon: "/brand/favicon.png",
+  },
 };
 
 export default function RootLayout({
