@@ -189,8 +189,12 @@ export default function ClientsPage() {
                 Фільтри
               </h2>
               <p className="text-sm text-neutral-600">
-                Знайдено {filtered.length} контактів · Загальна сума{" "}
-                <span className="font-semibold text-brand-dark">
+                Знайдено{" "}
+                <span key={tableKey} className="inline-block animate-pop">
+                  {filtered.length}
+                </span>{" "}
+                контактів · Загальна сума{" "}
+                <span key={`${tableKey}-sum`} className="inline-block animate-pop font-semibold text-brand-dark">
                   {formatMoney(totalAmount)} грн
                 </span>
               </p>
@@ -231,13 +235,19 @@ export default function ClientsPage() {
                 Менеджер
               </label>
               <Select value={managerFilter} onValueChange={setManagerFilter}>
-                <SelectTrigger className="h-12 rounded-2xl border-brand-dark/10 bg-white px-4 text-base shadow-inner transition focus:ring-brand-red/30">
+                <SelectTrigger className="h-12 w-full rounded-2xl border-brand-dark/10 bg-white px-4 text-base shadow-inner transition focus:ring-brand-red/30">
                   <SelectValue placeholder="Всі" />
                 </SelectTrigger>
-                <SelectContent className="rounded-2xl border-brand-dark/10">
-                  <SelectItem value="Всі">Всі</SelectItem>
+                <SelectContent className="w-[var(--radix-select-trigger-width)] rounded-2xl border-brand-dark/10 p-1">
+                  <SelectItem value="Всі" className="py-2 text-base">
+                    Всі
+                  </SelectItem>
                   {managers.map((manager) => (
-                    <SelectItem key={manager} value={manager}>
+                    <SelectItem
+                      key={manager}
+                      value={manager}
+                      className="py-2 text-base"
+                    >
                       {manager}
                     </SelectItem>
                   ))}
@@ -249,13 +259,19 @@ export default function ClientsPage() {
                 Статус
               </label>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="h-12 rounded-2xl border-brand-dark/10 bg-white px-4 text-base shadow-inner transition focus:ring-brand-red/30">
+                <SelectTrigger className="h-12 w-full rounded-2xl border-brand-dark/10 bg-white px-4 text-base shadow-inner transition focus:ring-brand-red/30">
                   <SelectValue placeholder="Всі" />
                 </SelectTrigger>
-                <SelectContent className="rounded-2xl border-brand-dark/10">
-                  <SelectItem value="Всі">Всі</SelectItem>
+                <SelectContent className="w-[var(--radix-select-trigger-width)] rounded-2xl border-brand-dark/10 p-1">
+                  <SelectItem value="Всі" className="py-2 text-base">
+                    Всі
+                  </SelectItem>
                   {statuses.map((status) => (
-                    <SelectItem key={status} value={status}>
+                    <SelectItem
+                      key={status}
+                      value={status}
+                      className="py-2 text-base"
+                    >
                       {status}
                     </SelectItem>
                   ))}
